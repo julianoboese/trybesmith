@@ -5,7 +5,8 @@
     "deps",
     "users",
     "auth",
-    "orders"
+    "orders",
+    "login"
   ],
   "cSpell.words": [
     "Trybesmith"
