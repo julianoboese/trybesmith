@@ -14,9 +14,9 @@ export default class UserController {
 
   public create = async (req: Request, res: Response): Promise<void> => {
     const user = await this.service.create(req.body);
-    const { username, classe, level } = user;
+    const { id, username } = user;
 
-    const token = this.jwtUtils.generateJwtToken({ username, classe, level });
+    const token = this.jwtUtils.generateJwtToken({ id, username });
 
     res.status(201).json({ token });
   };

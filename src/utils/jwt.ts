@@ -14,6 +14,6 @@ export default class JwtUtils {
     };
   }
 
-  public generateJwtToken = (user: Omit<IUser, 'password'>): string => 
+  public generateJwtToken = (user: Pick<IUser, 'id' | 'username'>): string => 
     sign({ user }, this.TOKEN_SECRET, this.jwtConfig);
 }
