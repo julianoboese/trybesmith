@@ -2,6 +2,8 @@
   "conventionalCommits.scopes": [
     "db",
     "products",
-    "deps"
+    "deps",
+    "users",
+    "auth"
   ]
 }
