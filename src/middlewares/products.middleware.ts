@@ -1,6 +1,6 @@
 import { NextFunction, Request, Response } from 'express';
 import Joi, { ObjectSchema } from 'joi';
-import JoiEnum from '../enums/joi.enum';
+import IJoi from '../interfaces/joi.interface';
 import ValidationError from '../shared/validation.error';
 
 export default class ProductMiddleware {
@@ -19,7 +19,7 @@ export default class ProductMiddleware {
     if (error) {
       const { type, message } = error.details[0];
 
-      throw new ValidationError(type as keyof typeof JoiEnum, message);
+      throw new ValidationError(type as IJoi['type'], message);
     }
 
     next();
