@@ -1,3 +1,6 @@
-export default interface IJoi {
-  type: 'any.required' | 'string.base' | 'string.min' | 'number.base' | 'number.min'
+import JoiEnum from '../enums/joi.enum';
+
+export default interface IJoiError {
+  type: keyof typeof JoiEnum,
+  message: string
 }

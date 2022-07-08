@@ -1,6 +1,6 @@
 import { NextFunction, Request, Response } from 'express';
 import Joi, { ObjectSchema } from 'joi';
-import IJoi from '../interfaces/joi.interface';
+import IJoiError from '../interfaces/joi.interface';
 import ValidationError from '../shared/validation.error';
 
 export default class ProductMiddleware {
@@ -17,9 +17,9 @@ export default class ProductMiddleware {
     const { error } = this.schema.validate(req.body);
 
     if (error) {
-      const { type, message } = error.details[0];
+      const joiError = error.details[0] as IJoiError;
 
-      throw new ValidationError(type as IJoi['type'], message);
+      throw new ValidationError(joiError);
     }
 
     next();
