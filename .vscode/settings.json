@@ -1,6 +1,7 @@
 {
   "conventionalCommits.scopes": [
     "db",
-    "products"
+    "products",
+    "deps"
   ]
 }
