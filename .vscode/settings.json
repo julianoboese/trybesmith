@@ -4,6 +4,10 @@
     "products",
     "deps",
     "users",
-    "auth"
+    "auth",
+    "orders"
+  ],
+  "cSpell.words": [
+    "Trybesmith"
   ]
 }
