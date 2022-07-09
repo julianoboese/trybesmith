@@ -1,4 +1,5 @@
-import { Secret, sign, SignOptions } from 'jsonwebtoken';
+import { JwtPayload, Secret, sign, SignOptions, verify } from 'jsonwebtoken';
+import HttpError from '../shared/http.error';
 import IUser from '../interfaces/users.interface';
 
 export default class JwtUtils {
@@ -15,5 +16,18 @@ export default class JwtUtils {
   }
 
   public generateJwtToken = (user: Pick<IUser, 'id' | 'username'>): string => 
-    sign({ user }, this.TOKEN_SECRET, this.jwtConfig);
+    sign(user, this.TOKEN_SECRET, this.jwtConfig);
+
+  public authenticateToken = async (token: string | undefined): Promise<string | JwtPayload> => {
+    if (!token) {
+      throw new HttpError(401, 'Token not found');
+    }
+  
+    try {
+      const validate = verify(token, this.TOKEN_SECRET);
+      return validate;
+    } catch (error) {
+      throw new HttpError(401, 'Invalid token');
+    }
+  };
 }
