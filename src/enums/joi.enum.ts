@@ -4,6 +4,8 @@ enum JoiEnum {
   'string.min' = 422,
   'number.base' = 422,
   'number.min' = 422,
+  'array.base' = 422,
+  'array.includesRequiredUnknowns' = 422,
 }
 
 export default JoiEnum;
