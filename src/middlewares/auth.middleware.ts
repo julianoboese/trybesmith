@@ -11,12 +11,8 @@ export default class AuthMiddleware {
   public authenticate = async (req: Request, res: Response, next: NextFunction): Promise<void> => {
     const token = req.headers.authorization;
     
-    try {
-      const user = await this.jwtUtils.authenticateToken(token);
-      res.locals.user = user;
-    } catch (error) {
-      next(error);
-    }
+    const user = await this.jwtUtils.authenticateToken(token);
+    res.locals.user = user;
 
     next();
   };
