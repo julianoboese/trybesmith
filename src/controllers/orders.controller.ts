@@ -13,4 +13,12 @@ export default class OrderController {
 
     res.status(200).json(orders);
   };
+
+  public create = async (req: Request, res: Response): Promise<void> => {
+    const order = await this.service.create({ userId: res.locals.user.id, ...req.body });
+
+    const { userId, productsIds } = order;
+
+    res.status(201).json({ userId, productsIds });
+  };
 }
