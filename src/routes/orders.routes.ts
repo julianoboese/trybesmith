@@ -16,6 +16,6 @@ const orderMiddleware = new OrderMiddleware();
 const authMiddleware = new AuthMiddleware();
 
 routes.get('/', orderController.getAll);
-routes.post('/', authMiddleware.authenticate, orderMiddleware.validation, orderController.create);
+routes.post('/', authMiddleware.authenticate, orderMiddleware.validate, orderController.create);
 
 export default routes;

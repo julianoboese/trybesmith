@@ -13,6 +13,6 @@ const userController = new UserController(userService);
 
 const userMiddleware = new UserMiddleware();
 
-routes.post('/', userMiddleware.validation, userController.create);
+routes.post('/', userMiddleware.validate, userController.create);
 
 export default routes;

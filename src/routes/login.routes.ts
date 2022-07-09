@@ -13,6 +13,6 @@ const loginController = new LoginController(loginService);
 
 const loginMiddleware = new LoginMiddleware();
 
-routes.post('/', loginMiddleware.validation, loginController.getLogin);
+routes.post('/', loginMiddleware.validate, loginController.getLogin);
 
 export default routes;

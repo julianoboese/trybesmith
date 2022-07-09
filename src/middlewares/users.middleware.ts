@@ -15,7 +15,7 @@ export default class UserMiddleware {
     });
   }
 
-  public validation = (req: Request, _res: Response, next: NextFunction): void => {
+  public validate = (req: Request, _res: Response, next: NextFunction): void => {
     const { error } = this.schema.validate(req.body);
 
     if (error) {

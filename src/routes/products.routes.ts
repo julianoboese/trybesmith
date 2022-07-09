@@ -14,6 +14,6 @@ const productController = new ProductController(productService);
 const productMiddleware = new ProductMiddleware();
 
 routes.get('/', productController.getAll);
-routes.post('/', productMiddleware.validation, productController.create);
+routes.post('/', productMiddleware.validate, productController.create);
 
 export default routes;
