@@ -12,9 +12,8 @@ jobs:
           with:
             node-version: 16
 
-
         - name: instalando as dependências
           run: npm install
 
         - name: executando o lint para verificar se a erros
-          run: npx eslint .
+          run: npm run lint
