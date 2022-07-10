@@ -5,7 +5,7 @@ jobs:
     runs-on: ubuntu-latest
 
     container:
-      image:  node:lts-alpine3.16
+      image:  node:16
 
     services:
       mysql:
@@ -26,9 +26,9 @@ jobs:
             node-version: 16
 
         - name: instalando as dependências
-          run: npm install
+          run: npm ci
 
-        - name: executando o lint para verificar se a erros
+        - name: executando o eslint
           run: npm run lint
 
         - name: executando os testes com Jest
@@ -38,3 +38,11 @@ jobs:
             MYSQL_USER: 'root'
             MYSQL_PORT: 3306
             MYSQL_PASSWORD: 'password'
+
+        - name: Test Report
+          uses: dorny/test-reporter@v1
+          if: success() || failure()    # run this step even if previous step failed
+          with:
+            name: JEST Tests            # Name of the check run which will be created
+            path: reports/jest-*.xml    # Path to test results
+            reporter: jest-junit  
