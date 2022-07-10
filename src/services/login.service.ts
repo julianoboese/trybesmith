@@ -15,6 +15,8 @@ export default class LoginService {
 
     if (user.length === 0) throw new HttpError(401, 'Username or password invalid');
 
-    return user[0];
+
+    
+    return user[0]
   };
 }
