@@ -11,7 +11,7 @@ export default class UserModel {
   public create = async (newUser: IUser): Promise<IUser> => {
     const { username, classe, level, password } = newUser;
     const [result] = await this.connection.execute<ResultSetHeader>(
-      'INSERT INTO Trybesmith.Users (username, classe, level, password) VALUES (?, ?, ?, ?)',
+      'INSERT INTO heroku_82de239a63b36ea.Users (username, classe, level, password) VALUES (?, ?, ?, ?)',
       [username, classe, level, password],
     );
 

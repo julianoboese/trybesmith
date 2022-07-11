@@ -85,7 +85,7 @@ describe("2 - Crie um endpoint para o cadastro de produtos", () => {
     expect(result.body.name).toEqual(product.name);
     expect(result.body.amount).toEqual(product.amount);
 
-    const [selected] = await connection.execute('SELECT * FROM Trybesmith.Products');
+    const [selected] = await connection.execute('SELECT * FROM heroku_82de239a63b36ea.Products');
     const products = selected as {
       id?: number
       name: string

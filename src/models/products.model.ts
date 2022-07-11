@@ -10,7 +10,7 @@ export default class ProductModel {
 
   public getAll = async (): Promise<IProduct[]> => {
     const [products] = await this.connection.execute(
-      'SELECT * FROM Trybesmith.Products',
+      'SELECT * FROM heroku_82de239a63b36ea.Products',
     );
 
     return products as IProduct[];
@@ -19,7 +19,7 @@ export default class ProductModel {
   public create = async (newProduct: IProduct): Promise<IProduct> => {
     const { name, amount } = newProduct;
     const [result] = await this.connection.execute<ResultSetHeader>(
-      'INSERT INTO Trybesmith.Products (name, amount) VALUES (?, ?)',
+      'INSERT INTO heroku_82de239a63b36ea.Products (name, amount) VALUES (?, ?)',
       [name, amount],
     );
 

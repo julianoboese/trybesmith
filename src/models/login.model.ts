@@ -12,7 +12,7 @@ export default class LoginModel {
   public getLogin = async (login: ILogin) => {
     const { username, password } = login;
     const [user] = await this.connection.execute(
-      'SELECT * FROM Trybesmith.Users WHERE username = ? AND password = ?',
+      'SELECT * FROM heroku_82de239a63b36ea.Users WHERE username = ? AND password = ?',
       [username, password],
     );
 

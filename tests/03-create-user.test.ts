@@ -153,7 +153,7 @@ describe('3 - Crie um endpoint para o cadastro de pessoas usuárias', function()
     expect(result.statusCode).toEqual(201);
     expect(result.body).toBeDefined();
     expect(result.body.token).toBeDefined();
-    const [selected] = await connection.execute('SELECT * FROM Trybesmith.Users');
+    const [selected] = await connection.execute('SELECT * FROM heroku_82de239a63b36ea.Users');
     const users = selected as {
       id?: number
       username: string

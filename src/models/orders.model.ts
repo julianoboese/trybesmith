@@ -10,11 +10,11 @@ export default class OrderModel {
 
   public getAll = async (): Promise<IOrder[]> => {
     const [orders] = await this.connection.execute<RowDataPacket[]>(
-      'SELECT * FROM Trybesmith.Orders',
+      'SELECT * FROM heroku_82de239a63b36ea.Orders',
     );
 
     const [products] = await this.connection.execute<RowDataPacket[]>(
-      'SELECT * FROM Trybesmith.Products WHERE orderId IS NOT NULL',
+      'SELECT * FROM heroku_82de239a63b36ea.Products WHERE orderId IS NOT NULL',
     );
 
     const productsByOrder: Record<string, number[]> = products
@@ -33,7 +33,7 @@ export default class OrderModel {
 
   public create = async (newOrder: IOrder): Promise<IOrder> => {
     const [result] = await this.connection.execute<ResultSetHeader>(
-      'INSERT INTO Trybesmith.Orders (userId) VALUES (?)',
+      'INSERT INTO heroku_82de239a63b36ea.Orders (userId) VALUES (?)',
       [newOrder.userId],
     );
 
@@ -44,7 +44,7 @@ export default class OrderModel {
 
   public updateProduct = async (orderId: number, productId: number): Promise<void> => {
     await this.connection.execute<ResultSetHeader>(
-      'UPDATE Trybesmith.Products SET orderId = ? WHERE id = ?',
+      'UPDATE heroku_82de239a63b36ea.Products SET orderId = ? WHERE id = ?',
       [orderId, productId],
     );
   };

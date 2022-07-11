@@ -87,7 +87,7 @@ describe('6 - Crie um endpoint para o cadastro de um pedido', function() {
     expect(result.body.productsIds).toBeDefined();
     expect(result.body.productsIds).toEqual([fakeProductId]);
 
-    const [selected] = await connection.execute('SELECT * FROM Trybesmith.Orders');
+    const [selected] = await connection.execute('SELECT * FROM heroku_82de239a63b36ea.Orders');
     const orders = selected as {
       id?: number
       userId: number
@@ -99,7 +99,7 @@ describe('6 - Crie um endpoint para o cadastro de um pedido', function() {
       )
     );
 
-    const [selectedProducts] = await connection.execute('SELECT * FROM Trybesmith.Products');
+    const [selectedProducts] = await connection.execute('SELECT * FROM heroku_82de239a63b36ea.Products');
     const products = selectedProducts as {
       id?: number
       name: string
@@ -142,7 +142,7 @@ describe('6 - Crie um endpoint para o cadastro de um pedido', function() {
     expect(result.body.productsIds).toBeDefined();
     expect(result.body.productsIds).toEqual([fakeProductId, fakeProduct2Id]);
 
-    const [selected] = await connection.execute('SELECT * FROM Trybesmith.Orders');
+    const [selected] = await connection.execute('SELECT * FROM heroku_82de239a63b36ea.Orders');
     const orders = selected as {
       id?: number
       userId: number
@@ -154,7 +154,7 @@ describe('6 - Crie um endpoint para o cadastro de um pedido', function() {
       )
     );
 
-    const [selectedProducts] = await connection.execute('SELECT * FROM Trybesmith.Products');
+    const [selectedProducts] = await connection.execute('SELECT * FROM heroku_82de239a63b36ea.Products');
     const products = selectedProducts as {
       id?: number
       name: string
