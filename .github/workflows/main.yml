@@ -1,4 +1,4 @@
-on: [pull_request]
+on: [push, pull_request]
 
 jobs:
   build:
@@ -20,18 +20,18 @@ jobs:
         - name: Verifica o repositório do Git
           uses: actions/checkout@v3
 
-        - name: Instala o node com a versão
+        - name: Instala o node
           uses: actions/setup-node@v3
           with:
             node-version: 16
 
-        - name: instalando as dependências
+        - name: Instala as dependências
           run: npm ci
 
-        - name: executando o eslint
+        - name: Executa o eslint
           run: npm run lint
 
-        - name: executando os testes com Jest
+        - name: Executa os testes
           run: npm test
           env:
             MYSQL_HOST: 'mysql'
@@ -39,7 +39,7 @@ jobs:
             MYSQL_PORT: 3306
             MYSQL_PASSWORD: 'password'
 
-        - name: Test Report
+        - name: Gera relatório de testes
           uses: dorny/test-reporter@v1
           if: success() || failure()    # run this step even if previous step failed
           with:
