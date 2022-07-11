@@ -70,11 +70,11 @@ VALUES
   );
 
 INSERT INTO
-  heroku_82de239a63b36ea.Products (name, amount, orderId)
+  Products (name, amount, orderId)
 VALUES
   ("Adaga de Aço Valírico", "1 peça de ouro", 2);
 
 INSERT INTO
-  heroku_82de239a63b36ea.Products (name, amount, orderId)
+  Products (name, amount, orderId)
 VALUES
-  ("Engenhoca aleatória", "15 peças de ouro", 3);
+  ("Engenhoca aleatória", "15 peças de ouro", 2);
